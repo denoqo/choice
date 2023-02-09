@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p{
+            color: red;
+        }
+
+        .boxx {
+            width: 100px;
+            height: 100px;
+            background-color: grey;
+        }
+
+
+
+        #grandparent {
+            height: 400px;
+            width: 400px;
+            background-color: lightgray;
+        }
+
+        #parent {
+            height: 200px;
+            width: 200px;
+            background-color: lightpink;
+        }
+
+        #child {
+            height: 100px;
+            width: 100px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+<h1>DOM</h1>
+
+<div class="boxx"></div>
+<script>
+    var oBox = document.getElementsByClassName("boxx")[0];
+    oBox.onclick = function () {
+        oBox.style.backgroundColor = "red";
+        console.log(1);
+    }
+</script>
+
+
+
+
+
+<p> this sis a paragraph </p>
+<div class="user common" id="user">Users:</div>
+<ul class ="box common">
+    <li id="john"> John</li>
+    <li id="peter" class="item"> Peter</li>
+</ul>
+
+
+<script>
+    var oUser = document.getElementsByClassName("user");
+    var oJohn = document.getElementById("john");
+    var oCommon = document.getElementsByClassName("common");
+    var oPeter = document.getElementsByClassName("item");
+    var oPeter = oCommon[1].getElementsByClassName("item")[0];
+
+    // querSelector
+    var oUser1 =document.querySelector("#user"); // return single element
+    var oCommon1 = document.querySelectorAll(".common"); // return all collection
+
+    // create an element
+    var oLi = document.createElement("li");
+    oLi.className = "item common";
+    oLi.className += " haha"; // must add a blank space
+    oLi.classList.add("hehe");
+    oLi.innerHTML = "<strong>Snoopy</strong>";
+    oCommon[1].append(oLi);
+    oCommon[1].prepend(oLi);
+    oCommon[1].before(oLi);
+    oCommon[1].after(oLi);
+
+    // add property
+    var oP = document.getElementsByTagName("p")[0];
+    oP.style.color = "blue";
+
+</script>
+
+<div id="grandparent">
+    <div id="parent">
+        <div id="child"></div>
+    </div>
+</div>
+
+<script>
+
+    // ===== 1. Bubbling ======
+    var gDiv = document.getElementById('grandparent');
+    var pDiv = document.getElementById('parent');
+    var cDiv = document.getElementById('child');
+
+    gDiv.addEventListener('click', function () {
+        console.log("grandparent bubbling! ");
+    }, false);
+
+    pDiv.addEventListener('click', function () {
+        console.log("parent bubbling! ");
+    }, false);
+
+    cDiv.addEventListener('click', function () {
+        console.log("child bubbling! ");
+    }, false);
+
+    // ===== onclick has only bubbling =====
+    gDiv.onclick = function() {
+        console.log('gp')
+    };
+
+    pDiv.onclick = function() {
+        console.log('p')
+    };
+
+    cDiv.onclick = function() {
+        console.log('c')
+    };
+
+</script>
+
+
+
+</body>
+</html>
