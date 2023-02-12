@@ -4,10 +4,14 @@ import com.choice.onlineOrder.dao.CartDao;
 import com.choice.onlineOrder.entity.Cart;
 import com.choice.onlineOrder.entity.Customer;
 import com.choice.onlineOrder.entity.OrderItem;
+
+import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+
+// security 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Service;
+
 
 @Service
 public class CartService {

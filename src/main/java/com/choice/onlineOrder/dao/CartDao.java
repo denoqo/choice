@@ -2,8 +2,10 @@ package com.choice.onlineOrder.dao;
 
 import com.choice.onlineOrder.entity.Cart;
 import com.choice.onlineOrder.entity.OrderItem;
+// object-relational database
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+// dependency injection
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
