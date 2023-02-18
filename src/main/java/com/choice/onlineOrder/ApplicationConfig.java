@@ -3,9 +3,12 @@ package com.choice.onlineOrder;
 import java.util.Properties;
 import javax.sql.DataSource;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+
+
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 
@@ -25,7 +28,7 @@ public class ApplicationConfig {
 
     @Bean(name = "dataSource")
     public DataSource dataSource() {
-        String RDS_ENDPOINT = "database-1.cofh7cghv4bx.us-east-1.rds.amazonaws.com";
+        String RDS_ENDPOINT = "choice.cofh7cghv4bx.us-east-1.rds.amazonaws.com";
         String USERNAME = "admin";
         String PASSWORD = "Xuqi0329.";
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
